@@ -1,0 +1,9 @@
+body {
+    font-size: 14px;
+    width: 100%;
+
+    @media (max-width: 992px) {
+        -webkit-overflow-scrolling: touch;
+        overflow-x: hidden;
+    }
+}

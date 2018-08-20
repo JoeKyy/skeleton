@@ -1,0 +1,39 @@
+@charset 'UTF-8';
+
+/// Mixin para facilitar o uso das fontes configuradas no mapa $font-config
+///
+/// @group    Fontes
+/// @require  {variable} $font-config
+///
+/// @output   Quando compilado adiciona as propriedades `font-family` e
+///           `font-weight` (quando necessario)
+///
+/// @param    {string} $font [base]      - Chave da fonte desejada
+/// @param    {string} $fallback [false] - Se quiser colocar a fonte fallback
+///
+/// @example scss - Uso
+///   .element {
+///     @include get-font(bold);
+///   }
+///
+/// @example css - Compilado
+///   .element {
+///     font-family: 'interfaceBold';
+///     font-weight: normal;
+///   }
+@mixin font($font-key: base, $fallback: false) {
+  @if map-has-key($font-config, $font-key){
+    $name: map-get(map-get($font-config, $font-key), name);
+    $weight: map-get(map-get($font-config, $font-key), weight);
+
+    @if $fallback {
+      font-family: $name, $font-fallback;
+    } @else {
+      font-family: $name;
+    }
+    font-weight: $weight;
+
+  } @else {
+    @warn 'A chave "#{$font-key}" não exite no mapa "$font-config"!'
+  }
+}

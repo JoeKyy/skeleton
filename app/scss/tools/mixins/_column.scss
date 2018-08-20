@@ -1,0 +1,43 @@
+@charset 'UTF-8';
+
+/// Configurações do grid utilizado
+/// @group    Configurações
+
+
+$totalColumns : 16 !default;
+$columnWidth  : 57px !default;
+$gutter       : 24px !default;
+$gridWidth    : $totalColumns * ($columnWidth + $gutter) !default;
+
+
+
+$flex-gutter: percentage($gutter/$gridWidth);
+
+/// Retorna a largura calculada de acordo com a quantidade de colunas desejadas
+///
+/// @group   Tools
+/// @require {variable} $grid
+///
+/// @param   {number} $col - Quantidade de colunas
+/// @param   {number} $gap - Quantidade de espaços entre colunas
+/// @param   {number} $first - Se deseja colocar margin-left
+///
+/// @example scss - Uso
+///   .element {
+///     width: column(2, 2);
+///   }
+///
+/// @example scss - Compilado
+///   .element {
+///     width: 12.5%;
+///     margin-left: 1.85185%;
+///   }
+
+@mixin column($col, $gap, $first: false) {
+  width: percentage((($columnWidth * $col) + ($gutter * $gap)) / $gridWidth);
+  @if $first == false {
+    margin-left: $flex-gutter;
+  }
+}
+
+

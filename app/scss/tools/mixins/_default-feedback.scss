@@ -1,0 +1,94 @@
+@charset 'UTF-8';
+
+$color-state-modifier: (11%, 21%, 11%) !default;
+
+/// Mixin para facilitar a inclusão dos eventos hover, focus e active nos
+/// elementos interativos
+///
+/// @group    Tools
+/// @require  {variable} $color-state-modifier
+///
+/// @output   Quando compilado seta as pseudo-classes hover, active e visited
+///           para elementos que aceitam esses status
+///
+/// @param    {string}  $this-color - Chave do da cor desejada
+/// @param    {arglist} $properties - Propriedade ou lista de propriedades às
+///                                   quais sera atribuida a cor p/ cada status
+///
+/// @example scss - Uso
+///   .button-with-default-modifier {
+///     @include default-feedback(
+///       color(primary),
+///       background,
+///       color,
+///       border-color
+///     );
+///   }
+///   .button-with-custom-modifier {
+///     @include default-feedback(
+///       color(primary),
+///       (22%, 56%, 80%),
+///       background,
+///       color,
+///       border-color
+///     );
+///   }
+///
+/// @example css - Compilado
+///   .button-with-default-modifier:hover {
+///     background: #324c01;
+///     color: #324c01;
+///     border-color: #324c01;
+///   }
+///   .button-with-default-modifier:focus {
+///     background: #111a00;
+///     color: #111a00;
+///     border-color: #111a00;
+///   }
+///   .button-with-default-modifier:active {
+///     background: #9bec04;
+///     color: #9bec04;
+///     border-color: #9bec04;
+///   }
+///   -----------------
+///   .button-with-custom-modifier:hover {
+///     background: #355101;
+///     color: #355101;
+///     border-color: #355101;
+///   }
+///   .button-with-custom-modifier:focus {
+///     background: #141f00;
+///     color: #141f00;
+///     border-color: #141f00;
+///   }
+///   .button-with-custom-modifier:active {
+///     background: #98e704;
+///     color: #98e704;
+///     border-color: #98e704;
+///   }
+
+@mixin default-feedback($colors, $properties...) {
+  $prop-list: ();
+
+  @for $i from 1 through length($properties) {
+    $prop-list: append($prop-list, nth($properties, $i));
+  }
+
+  &:hover {
+    @each $prop in $properties {
+      #{$prop}: nth($colors, 1);
+    }
+  }
+
+  &:focus {
+    @each $prop in $properties {
+      #{$prop}: nth($colors, 2);
+    }
+  }
+
+  &:active {
+    @each $prop in $properties {
+      #{$prop}: nth($colors, 3);
+    }
+  }
+}

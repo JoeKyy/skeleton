@@ -1,0 +1,33 @@
+@charset 'UTF-8';
+
+/// Retorna o tamanho correspondente à chave especificada no mapa `$font-sizes`
+///
+/// @group   Tools
+/// @require {variable} $font-sizes
+///
+/// @return  {number} - Tamanho atribuido no mapa
+///
+/// @param   {string} $value - Nome do tamanho desejado
+/// @param   {boolean} $rem - Se a fonte deve ser convertida em rem ou em nada
+///          (usar null ou false para não convertir)
+///
+/// @example scss - Uso
+///   .element {
+///     font-size: font-size(big);
+///   }
+///
+/// @example scss - Compilado
+///   .element {
+///     font-size: 1.5rem;
+///   }
+@function font-size($value, $rem: true) {
+  @if map-has-key($font-sizes, $value) {
+    @if $rem {
+      @return rem(map-get($font-sizes, $value));
+    } @else {
+      @return map-get($font-sizes, $value);
+    }
+  } @else {
+    @warn 'A chave "#{$value}" não existe. Verifique se ela foi definida no mapa "$font-sizes"!';
+  }
+}

@@ -1,0 +1,42 @@
+/* Variables */
+@charset 'UTF-8';
+
+/// @group    Configurações
+$colors: (
+  primary: #00b0a2,
+  secondary: #f68900,
+
+  danger:    #f85757,
+  success:   #a4cb1b,
+  warning:   #febc11,
+
+  light: (
+	base: #fff,
+	dark: #c8c8c8,
+	darkest: #f6f6f6
+  ),
+  dark: (
+	light: #6a6c70,
+    base: #000
+  )
+) !default;
+
+/// @group    Fontes
+$font-sizes: (
+  xxbig: 48px,
+  xbig: 30px,
+  big: 24px,
+  medium: 16px,
+  small: 14px,
+  xsmall: 12px
+) !default;
+
+/// @group Spaces
+$spaces: (
+    p    : 8px,
+    base : 16px,
+    m    : 24px,
+    g    : 32px,
+    gg   : 48px,
+    xg   : 56px
+) !default;

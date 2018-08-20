@@ -1,0 +1,64 @@
+@charset 'UTF-8';
+
+/// Constante utilizada para facilitar a conversão de uma unidade
+/// em outra
+/// Caso desejar modificar, faça-o no arquivo _config.scss
+/// @group   Configurações
+$font-size-base: 16px !default;
+
+/// Converte um valor dado em `px` para um valor em `em`
+/// A unidade de medida (px) não é obrigatória.
+///
+/// @group   Tools
+/// @require {variable} $font-size-base
+///
+/// @return  {number} - Converted value expressed in `em`
+///
+/// @param   {number} $value                       - Valor a ser convertido
+/// @param   {number} $base-size [$font-size-base] - Tamanho da fonte pai
+///
+/// @example scss - Uso
+///   .element {
+///     height: em(20px);
+///   }
+///
+/// @example scss - Compilado
+///   .element {
+///     height: 1.25em
+///   }
+@function em($value, $base-size: $font-size-base) {
+  @if type-of($value) == 'number' {
+    @return (clean-unit($value) / clean-unit($base-size)) * 1em;
+  } @else {
+    @warn '"#{$value}" não é um número';
+  }
+}
+
+/// Converte um valor dado em `px` para um valor em `rem`
+/// A unidade de medida (px) não é obrigatória.
+///
+/// @group   Tools
+/// @access  public
+///
+/// @param   {number} $value                       - Valor a ser convertido
+/// @param   {number} $base-size [$font-size-base] - Tamanho da fonte pai
+///
+/// @return  {number} - Converted value expressed in `rem`
+/// @require {variable} $font-size-base
+///
+/// @example scss - Uso
+///   .element {
+///     height: rem(20px);
+///   }
+///
+/// @example scss - Compilado
+///   .element {
+///     height: 1.25rem;
+///   }
+@function rem($value) {
+  @if type-of($value) == 'number' {
+    @return (clean-unit($value) / clean-unit($font-size-base)) * 1rem;
+  } @else {
+    @warn '"#{$value}" não é um número';
+  }
+}

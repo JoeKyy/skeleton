@@ -1,0 +1,48 @@
+@charset 'UTF-8';
+
+/// Retorna um valor de um mapa dentro de um outro mapa
+/// Melhor usado dentro de outras funções
+///
+/// @group   Tools
+///
+/// @return  {variable} - Valor final do mapa dentro de outro mapa
+///
+/// @param   {map}    $map    - Variável (nome) do mapa
+/// @param   {string} $keys   - Uma ou mais chaves (nomes) para obter o valor dentro do mapa
+///
+/// @example scss - Uso
+///   $colors: (
+///     light: (
+///       lightest: #fff,
+///       base:     #eeedeb,
+///       medium:   #e0e0e0
+///     ),
+///     dark: (
+///       light:   #c9c9c7,
+///       base:    #706f6f,
+///       medium:  #b1afaf,
+///       shades: (
+///         light:   #333,
+///         base:    #222,
+///         darkest: #000
+///       )
+///     )
+///   );
+///   .element {
+/// 	  color: get-maps($colors, dark, shades, light);
+///   }
+///
+/// @example scss - Compilado
+///   .element {
+///     color: #333;
+///   }
+///
+@function get-maps($map, $keys...) {
+	$value: $map;
+
+	@each $key in $keys {
+		$value: map-get($value, $key);
+	}
+
+	@return $value;
+}
