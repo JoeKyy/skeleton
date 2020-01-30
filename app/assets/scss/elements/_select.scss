@@ -1,0 +1,22 @@
+select {
+    padding: space(p) space(base);
+    width: 100%;
+
+    background: {
+        color: color(light, lighten);
+		image: url(/assets/images/icn-seta_baixo.png);
+        position: 95% 50%;
+        size: 20px;
+		repeat: no-repeat;
+    }
+
+    border: none;
+    border-radius: $border-radius;
+
+    -webkit-appearance: none;
+            appearance: none;
+
+    &.border-dark {
+        border: 1px solid color(dark);
+    }
+}

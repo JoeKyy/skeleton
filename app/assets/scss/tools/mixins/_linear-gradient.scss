@@ -1,0 +1,29 @@
+@charset 'UTF-8';
+
+/// Mixin para facilitar o uso das fontes configuradas no mapa $font-config
+///
+/// @group    Background
+///
+/// @output   Cria background com cores gradientes lineares
+///
+/// @example scss - Uso
+///   .element {
+///     @include linearGradient(#00000, #ffffff);
+///   }
+///
+/// @example css - Compilado
+///   .element {
+///     background: $top;
+///     background: -moz-linear-gradient(left,  #231306 0%, #f56c1f 57%, #f56c1f 100%);
+///     background: -webkit-linear-gradient(left,  #231306 0%,#f56c1f 57%,#f56c1f 100%);
+///     background: linear-gradient(to right,  #231306 0%,#f56c1f 57%,#f56c1f 100%);
+///     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#231306', endColorstr='#f56c1f',GradientType=1 );
+///
+///
+@mixin linearGradient($top, $bottom){
+  background: $top;
+    background: -moz-linear-gradient(left,  $top 0%, $top 57%, $bottom 100%);
+    background: -webkit-linear-gradient(left,  $top 0%,$top 57%,$bottom 100%);
+    background: linear-gradient(to right,  $top 0%,$top 57%,$bottom 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$top', endColorstr='$bottom',GradientType=1 );
+}

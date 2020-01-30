@@ -1,0 +1,8 @@
+.round-content {
+    display: inline-block;
+    width: 100%;
+    padding: space(p) space(base);
+
+    border: 1px solid color(dark);
+    border-radius: $border-radius;
+}

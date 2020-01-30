@@ -1,0 +1,159 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/tools/functions/color';
+
+input {
+    padding: space(p);
+
+    &[type="text"],
+    &[type="tel"],
+    &[type="number"],
+    &[type="password"],
+    &[type="file"],
+    &[type="date"],
+    &[type="email"] {
+        width: 100%;
+
+        &.form-control {
+            background-color: color(light, lighten);
+            border: 0;
+
+            &.bg-light {
+                background-color: color(light);
+                border: 1px solid color(dark);
+
+                &:focus {
+                    background-color: color(light);
+                    border: 1px solid color(dark);
+                    box-shadow: none;
+                    outline: none;
+                }
+            }
+
+            &:focus {
+                background-color: color(light, lighten);
+                border: 0;
+                box-shadow: none;
+                outline: none;
+            }
+
+            &::placeholder {
+                color: inherit;
+            }
+
+            &.transparent {
+                background-color: inherit !important;
+
+                &:focus {
+                    background-color: inherit;
+                    border: 0;
+                    box-shadow: none;
+                    outline: none;
+                }
+            }
+
+            &.border-white {
+                border: 1px solid color(light);
+                &:focus {
+                    border: 1px solid color(light);
+                }
+            }
+        }
+
+
+        &::placeholder {
+            color: inherit;
+        }
+
+        &.transparent {
+            background-color: transparent !important;
+
+            &:focus {
+                background-color: inherit;
+                border: 0;
+                box-shadow: none;
+                outline: none;
+            }
+        }
+
+        &.border-white {
+            border: 1px solid color(light);
+        }
+    }
+}
+
+.checkboxContainer {
+    position: relative;
+
+    display: flex;
+    align-content: center;
+    width: 25px;
+    height: 25px;
+
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 0;
+        height: 0;
+        margin: auto;
+
+        opacity: 0;
+
+        &:checked ~ span:after {
+            content: "";
+            display: block;
+            width: 25px;
+            height: 25px;
+
+            background: {
+                image: url(/assets/images/icn-check.png);
+                position: 40% 50%;
+                repeat: no-repeat;
+                size: 60%;
+            }
+        }
+
+        &:disabled {
+            & ~ span {
+                background-color: color(light, lighten);
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    span {
+        width: 25px;
+        height: 25px;
+
+        background-color: color(light);
+        border: 1px solid color(dark);
+
+        cursor: pointer;
+    }
+
+    &:focus,
+    &:hover {
+        input ~ span {
+            background-color: color(light, lighten);
+        }
+    }
+
+    &.withText {
+        display: flex;
+        align-content: center;
+        width: inherit;
+        height: 25px;
+
+        span {
+            margin-right: space(p);
+        }
+    }
+}
+
+.input-group-text {
+    background-color: color(light, lighten);
+    border: 0;
+}

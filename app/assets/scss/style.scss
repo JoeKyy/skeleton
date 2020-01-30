@@ -1,0 +1,68 @@
+@charset 'UTF-8';
+
+// @section  Vendors [vendors]
+@import "./vendors/bootstrap/bootstrap";
+
+// @section  Settings [configurações]
+@import './assets/scss/variables';
+
+// @section  Tools [ferramentas]
+@import './assets/scss/tools/functions/get-maps';
+@import './assets/scss/tools/functions/clean-unit';
+@import './assets/scss/tools/functions/converters';
+@import './assets/scss/tools/functions/opposite-direction';
+@import './assets/scss/tools/functions/font-size';
+@import './assets/scss/tools/functions/transition';
+@import './assets/scss/tools/functions/space';
+@import './assets/scss/tools/mixins/column';
+@import './assets/scss/tools/mixins/content-width';
+@import './assets/scss/tools/mixins/default-feedback';
+@import './assets/scss/tools/mixins/font';
+@import './assets/scss/tools/mixins/generated-content';
+@import './assets/scss/tools/mixins/hidden-text';
+@import './assets/scss/tools/mixins/responsive';
+@import './assets/scss/tools/mixins/menu-barras';
+@import './assets/scss/tools/mixins/triangle';
+
+// @section  Generics [genericos]
+@import './assets/scss/generics/reset';
+
+
+// @section  Elements [elementos]
+
+/*------------------------------------*\
+    TYPOGRAPHY
+\*------------------------------------*/
+
+@import './assets/scss/elements/typography';
+
+/*------------------------------------*\
+    TABLE
+\*------------------------------------*/
+
+@import './assets/scss/elements/table';
+
+/*------------------------------------*\
+    FORM
+\*------------------------------------*/
+
+@import './assets/scss/elements/form';
+@import './assets/scss/elements/input';
+@import './assets/scss/elements/textarea';
+@import './assets/scss/elements/select';
+
+/*------------------------------------*\
+    BUTTONS
+\*------------------------------------*/
+
+@import './assets/scss/elements/buttons';
+
+/*------------------------------------*\
+    BODY
+\*------------------------------------*/
+
+@import './assets/scss/elements/body';
+@import './assets/scss/elements/modal';
+@import './assets/scss/elements/round-content';
+
+// @section  Objects [objetos]
