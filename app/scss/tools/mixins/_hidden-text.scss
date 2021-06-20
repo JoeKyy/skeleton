@@ -1,0 +1,37 @@
+@charset 'UTF-8';
+
+/// Mixin para esconder o elemento, ou o texto do elemento, de forma que o mesmo
+/// continue acessível para leitores de tela
+///
+/// @group    Tools
+///
+/// @output   Quando compilado esconde o elemento ou o texto do elemento.
+///
+/// @param    {boolean} $text [false] - Indica se o elemento/texto a ser escondido
+///                                     é para acessibilidade (screen-reader) ou
+///                                     para imagem/icone (sprite)
+///
+/// @example scss - Uso
+///   .element {
+///     @include hidden-text(screen-reader);
+///   }
+///
+/// @example css - Compilado
+///   .element {
+///     overflow: hidden;
+///     text-indent: -9999px;
+///   }
+
+@mixin hidden-text($type: screen-reader) {
+  overflow: hidden;
+
+  @if ($type == 'sprite') {
+    position: absolute;
+    top: auto;
+    left: -10000px;
+    height: 1px;
+    width: 1px;
+  } @else {
+    text-indent: -9999px;
+  }
+}

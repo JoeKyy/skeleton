@@ -1,0 +1,31 @@
+@charset 'UTF-8';
+
+$default-animation-config: 200ms ease !default;
+
+/// Retorna uma lista de propriedades concatenada com a variavel de valor padrão da animação
+///
+/// @group   Tools
+/// @require {variable} $default-animation-config
+///
+/// @return  {string} - Lista de propriedades para aplicar no `transition`
+///
+/// @param   {arglist} $properties - Propriedades para aplicar no transition
+///
+/// @example scss - Uso
+///   .element {
+///     transition: transition(background, padding);
+///   }
+///
+/// @example scss - Compilado
+///   .element {
+///     transition: background 200ms ease, padding 200ms ease;
+///   }
+@function transition($properties...) {
+  $prop-list: ();
+
+  @each $prop in $properties {
+    $prop-list: append($prop-list, $prop #{$default-animation-config}, comma);
+  }
+
+  @return #{$prop-list};
+}

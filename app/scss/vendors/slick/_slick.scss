@@ -1,0 +1,44 @@
+.slick-slider {
+    button {
+        outline: none;
+
+        &.slick-arrow {
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            bottom: 0;
+            width: 30px;
+            height: 30px;
+            background: inherit;
+            text-rendering: auto;
+            font-size: 0;
+            border: 0;
+            cursor: pointer;
+
+            &.slick-prev {
+                position: absolute;
+                left: 0;
+                margin: (space(xg) * 1.5) auto auto (- space(xg));
+                &:before {
+
+                    display: block;
+                    content: "";
+                }
+            }
+            &.slick-next {
+                position: absolute;
+                right: 0;
+                margin: (space(xg) * 1.5) (- space(xg)) auto auto;
+                &:before {
+                    display: block;
+                    content: "";
+                }
+            }
+        }
+    }
+}
+
+.slick-track {
+    display: flex;
+    align-items: flex-start;
+}

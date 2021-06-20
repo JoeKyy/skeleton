@@ -1,0 +1,79 @@
+.row.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.row.no-gutters>[class^="col-"],
+.row.no-gutters>[class*=" col-"] {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.margin-left {
+    margin-left: 15px;
+}
+
+.margin-right {
+    margin-right: 15px;
+}
+
+.nopad-left {
+    padding-left: 0;
+}
+
+.nopad-right {
+    padding-right: 0;
+}
+
+@media (max-width: 640px) {
+    .center-block-mobile {
+        float: none !important;
+        display: block;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    .text-center-mobile {
+        text-align: center;
+    }
+}
+
+.center-block {
+    float: none !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    @media (max-width: 767px) {
+        display: inherit;
+        float: inherit;
+    }
+}
+
+.vbottom {
+    display: inline-block;
+    vertical-align: bottom;
+    float: none;
+}
+
+.letter-spacing {
+    letter-spacing: 2px;
+}
+
+label {
+    white-space: nowrap;
+}
+
+.position-absolute {
+    @include responsive(large) {
+        position: absolute!important;
+    }
+
+    position: relative!important;
+}

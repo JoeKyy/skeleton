@@ -1,0 +1,92 @@
+/* Variables */
+@charset 'UTF-8';
+
+/// @group    Configurações
+
+$colors: (
+  primary: (
+    base: #046198,
+  ),
+  secondary: (
+    base: #ed731f,
+  ),
+  tertiary: (
+    base: #a3ca5a,
+  ),
+  light: (
+    base: #ffffff,
+  ),
+  dark: (
+    base: #1a3240,
+  ),
+  danger      : #f85757,
+  success     : #00b412,
+  warning     : #fed82b,
+
+) !default;
+
+/// @group    Fontes
+
+$font-config: (
+  thin: (
+    name: 'Roboto',
+    weight: 100
+  ),
+  light: (
+    name: 'Roboto',
+    weight: 300
+  ),
+  base: (
+    name: 'Roboto',
+    weight: 400
+  ),
+  medium: (
+    name: 'Roboto',
+    weight: 500
+  ),
+  bold: (
+    name: 'Roboto',
+    weight: 700
+  ),
+  black: (
+    name: 'Roboto',
+    weight: 900
+  )
+) !default;
+
+$font-fallback: Tahoma, Verdana, Segoe, sans-serif !default;
+
+/// @group    Fontes
+$font-sizes: (
+  xxxxbig		:	  64px,
+  xxxbig		:	  48px,
+  xxbig		  :	  36px,
+  xbig		  :	  32px,
+  big		    :	  24px,
+  large		  :	  18px,
+  medium		:	  16px,
+  normal		:	  14px,
+  small		  :	  12px,
+) !default;
+
+/// @group    Breakpoints
+$breakpoints: (
+  xsmall  : 375px,
+  small   : 641px,
+  medium  : 769px,
+  large   : 1279px,
+  xlarge  : 1367px,
+  xxlarge : 1441px,
+  xxxlarge: 1921px
+) !default;
+
+/// @group Spaces
+$spaces: (
+  s       :     4px,
+  p       :     8px,
+  base    :     16px,
+  m       :     24px,
+  g       :     32px,
+  gg      :     48px,
+  xg      :     56px
+) !default;

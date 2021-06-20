@@ -1,0 +1,65 @@
+@charset 'UTF-8';
+
+/// Mixin para facilitar a criação e utilização de media queries
+/// Baseado no mixin de [Hugo Giraudel](https://www.sitepoint.com/managing-responsive-breakpoints-sass/)
+///
+/// @group    Tools
+/// @require  {variable} $breakpoints
+/// @require  {function} em </assets/styles/tools/functions/_converters.scss>
+///
+/// @output   Quando compilado coloca todas as propriedades que tem dentro
+///           do mixin na media querie selecionada como parametro
+///
+/// @param    {string} $breakpoint             - Chave do tamanho desejado
+/// @param    {string} $width [min]            - O valor que será utilizado no @media
+///                                              (min, max ou uma chave do mapa $breakpoints)
+///
+/// @example scss - Uso
+///   @include responsive(large) {
+///     background: blue;
+///     width: 50px;
+///   }
+///
+/// @example css - Compilado
+///    @media (min-width: 48.0625em) {
+///      .element {
+///        background: blue;
+///        width: 50%;
+///      }
+///    }
+///
+/// @example scss - Uso
+///   @include responsive(medium, xlarge) {
+///     background: blue;
+///     width: 50px;
+///   }
+///
+/// @example css - Compilado
+///    @media (min-width: 48.0625em) and (max-width: 82.5em) {
+///      .element {
+///        background: blue;
+///        width: 50%;
+///      }
+///    }
+///
+@mixin responsive($breakpoint, $width: min) {
+  @if variable-exists(breakpoints) {
+    @if map-has-key($breakpoints, $width) {
+      @media (min-width: em(map-get($breakpoints, $breakpoint))) {
+        @media (max-width: em(map-get($breakpoints, $width) - 1)) {
+          @content;
+        }
+      }
+    } @else if $width == max {
+      @media (max-width: em(map-get($breakpoints, $breakpoint) - 1)) {
+        @content;
+      }
+    } @else {
+      @media (min-width: em(map-get($breakpoints, $breakpoint))) {
+        @content;
+      }
+    }
+  } @else {
+    @warn 'O mapa $breakpoints não existe';
+  }
+}

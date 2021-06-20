@@ -1,0 +1,18 @@
+@charset 'UTF-8';
+
+/// Função para limpeza da unidade de valores numéricos
+/// para facilitar as operações matemáticas
+///
+/// @group   Tools
+/// @access  private
+///
+/// @param   {number} $value - Value to be cleaned
+///
+/// @return  {number} - Cleaned value
+@function clean-unit($value) {
+  @if type-of($value) == 'number' {
+    @return $value / ($value * 0 + 1);
+  } @else {
+    @warn '"#{$value}" não é um número.';
+  }
+}

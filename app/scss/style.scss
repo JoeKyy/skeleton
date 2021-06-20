@@ -1,0 +1,108 @@
+@charset 'UTF-8';
+
+// @section  Settings [configurações]
+@import "./config";
+// @import './sprite';
+
+// @section  Tools [ferramentas]
+@import './tools/functions/get-maps';
+@import './tools/functions/clean-unit';
+@import './tools/functions/converters';
+@import './tools/functions/color';
+@import './tools/functions/font-size';
+@import './tools/functions/transition';
+@import './tools/functions/space';
+@import './tools/mixins/column';
+@import './tools/mixins/content-width';
+@import './tools/mixins/default-feedback';
+@import './tools/mixins/font';
+@import './tools/mixins/filter-gradient';
+@import './tools/mixins/generated-content';
+@import './tools/mixins/hidden-text';
+@import './tools/mixins/responsive';
+@import './tools/mixins/menu-barras';
+
+/*------------------------------------*\
+    VENDORS
+\*------------------------------------*/
+
+// @section  Generics [genericos]
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+
+/*------------------------------------*\
+    RESET
+\*------------------------------------*/
+
+@import "./generics/reset";
+
+
+// @section  Elements [elementos]
+
+/*------------------------------------*\
+    TYPOGRAPHY
+\*------------------------------------*/
+
+@import "./elements/typography";
+
+/*------------------------------------*\
+    FORM
+\*------------------------------------*/
+
+//@import "./elements/form";
+//@import "./elements/label";
+//@import "./elements/input";
+//@import "./elements/textarea";
+//@import "./elements/select";
+@import "./elements/buttons";
+
+/*------------------------------------*\
+    HEADER
+\*------------------------------------*/
+
+@import "./elements/header";
+
+/*------------------------------------*\
+    BODY
+\*------------------------------------*/
+
+@import "./elements/body";
+
+/*------------------------------------*\
+    MAIN
+\*------------------------------------*/
+
+@import "./elements/main";
+
+/*------------------------------------*\
+    SECTION
+\*------------------------------------*/
+
+@import "./elements/section";
+
+
+/*------------------------------------*\
+    FOOTER
+\*------------------------------------*/
+
+@import "./elements/footer";
+
+// @section  Objects [objetos]
+// @section  Components [componentes]
+// @section  Pages
+// @section Helpers
+
+/*------------------------------------*\
+    HELPERS
+\*------------------------------------*/
+
+@import "./helpers";
+
+// slick
+@import "./vendors/slick/slick";
+
+
+/*------------------------------------*\
+    ARTICLE
+\*------------------------------------*/
+
+//@import "./elements/article";

@@ -1,0 +1,92 @@
+// menu-barras
+//
+// (---) top    -> &::before
+// [---] middle -> &
+// (---) bottom -> &::after
+
+// Burger
+@mixin menu-barras($width: 30px, $height: 5px, $gutter: 3px, $color: #000, $border-radius: 0, $transition-duration: .3s) {
+  $menu-barras-height: $height !global;
+  $menu-barras-gutter: $gutter !global;
+
+  position: relative;
+  margin-top: $height + $gutter;
+  margin-bottom: $height + $gutter;
+  user-select: none;
+
+  &,
+  &::before,
+  &::after {
+    display: block;
+    width: $width;
+    height: $height;
+    background-color: $color;
+    outline: 1px solid transparent; // 1
+
+    @if $border-radius != 0 {
+      border-radius: $border-radius;
+    }
+
+    transition-property: background-color, transform;
+    transition-duration: $transition-duration;
+  }
+
+  &::before, &::after {
+    position: absolute;
+    content: "";
+  }
+
+  &::before {
+    top: -($height + $gutter);
+  }
+
+  &::after {
+    top: $height + $gutter;
+  }
+}
+
+@mixin menu-barras-parts {
+  &,
+  &::before,
+  &::after {
+    @content;
+  }
+}
+
+@mixin menu-barras-top {
+  &::before {
+    @content;
+  }
+}
+
+@mixin menu-barras-middle {
+  & {
+    @content;
+  }
+}
+
+@mixin menu-barras-bottom {
+  &::after {
+    @content;
+  }
+}
+
+
+// Burger animations
+@mixin menu-barras-fechar($color: auto) {
+  & {
+    background-color: transparent;
+  }
+  @if ($color != auto) {
+    &::before,
+    &::after {
+      background-color: $color;
+    }
+  }
+  &::before {
+    transform: translateY($menu-barras-gutter + $menu-barras-height) rotate(45deg);
+  }
+  &::after {
+    transform: translateY(-($menu-barras-gutter + $menu-barras-height)) rotate(-45deg);
+  }
+}

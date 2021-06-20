@@ -1,0 +1,32 @@
+@charset 'UTF-8';
+
+/// Mixin para setar width: 100% no mobile e facilitar o redimensionamento de um card/seletor em um breakpoint personalizado.
+///
+/// @group       Tools
+///
+/// @requires   {mixin} column </assets/styles/tools/mixin/_column.scss>
+/// @requires   {mixin} responsive </assets/styles/tools/mixin/_responsive.scss>
+///
+/// @output   Quando compilado coloca width: 100% no mobile e width personalizado no breakpoint escolhido.
+///
+/// @param   {string} $size             - Tamanho desejado, em número de colunas,
+///                                       para redimensionar o conteúdo no breakpoint $width
+/// @param   {string} $width [medium]   - Breakpoint desejado para o redimensionamento
+///
+/// @example scss - Uso
+///   @include content-width(14);
+///
+/// @example css - Compilado
+///    @include column(16, 16, first);
+///
+///    @include responsive(large) {
+///      @include column(14, 14, first);
+///    }
+///
+@mixin content-width($size, $width: medium) {
+  @include column(16, 16, first);
+
+  @include responsive($width) {
+    @include column($size, $size, first);
+  }
+}
