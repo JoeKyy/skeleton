@@ -351,7 +351,7 @@
     "lcid": "^1.0.0",
     "limiter": "^1.1.3",
     "load-json-file": "^1.1.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "lodash._basecopy": "^3.0.1",
     "lodash._basetostring": "^3.0.1",
     "lodash._basevalues": "^3.0.0",
