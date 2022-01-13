@@ -213,7 +213,7 @@
     "fined": "^1.1.0",
     "first-chunk-stream": "^1.0.0",
     "flagged-respawn": "^1.0.0",
-    "follow-redirects": "^1.5.9",
+    "follow-redirects": "^1.14.7",
     "for-in": "^1.0.2",
     "for-own": "^1.0.0",
     "foreach": "^2.0.5",
