@@ -412,7 +412,7 @@
     "nopt": "^3.0.6",
     "normalize-path": "^2.1.1",
     "npm-run-path": "^2.0.2",
-    "nth-check": "^1.0.1",
+    "nth-check": "^2.0.1",
     "number-is-nan": "^1.0.1",
     "oauth-sign": "^0.8.2",
     "obj-extend": "^0.1.0",
