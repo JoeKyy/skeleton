@@ -407,7 +407,7 @@
     "ndarray-pack": "^1.2.1",
     "negotiator": "^0.6.1",
     "node-bitmap": "^0.0.1",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "node-status-codes": "^1.0.0",
     "nopt": "^3.0.6",
     "normalize-path": "^2.1.1",
