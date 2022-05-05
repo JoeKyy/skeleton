@@ -421,7 +421,7 @@
     "object-copy": "^0.1.0",
     "object-inspect": "^0.4.0",
     "object-keys": "^1.0.12",
-    "object-path": "^0.11.5",
+    "object-path": "^0.11.8",
     "object-visit": "^1.0.1",
     "object.assign": "^4.1.0",
     "object.defaults": "^1.1.0",
