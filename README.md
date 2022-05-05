@@ -1,12 +1,2 @@
-
-   ▄▄▄▄▄   █  █▀ ▄███▄   █     ▄███▄     ▄▄▄▄▀ ████▄    ▄
-  █     ▀▄ █▄█   █▀   ▀  █     █▀   ▀ ▀▀▀ █    █   █     █
-▄  ▀▀▀▀▄   █▀▄   ██▄▄    █     ██▄▄       █    █   █ ██   █
- ▀▄▄▄▄▀    █  █  █▄   ▄▀ ███▄  █▄   ▄▀   █     ▀████ █ █  █
-             █   ▀███▀       ▀ ▀███▀    ▀            █  █ █
-            ▀                                        █   ██
-
-
-
- This is just a skeleton
- a base HTML/SCSS/JS project
+This is just a skeleton
+a base HTML/SCSS/JS project
