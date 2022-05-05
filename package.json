@@ -70,7 +70,7 @@
     "atob": "^2.1.2",
     "aws-sign2": "^0.7.0",
     "aws4": "^1.8.0",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "babel-runtime": "^6.26.0",
     "backo2": "^1.0.2",
     "balanced-match": "^1.0.0",
