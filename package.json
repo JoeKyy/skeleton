@@ -204,7 +204,7 @@
     "fast-json-stable-stringify": "^2.0.0",
     "fd-slicer": "^1.1.0",
     "figures": "^1.7.0",
-    "file-type": "^4.4.0",
+    "file-type": "^16.5.4",
     "filename-regex": "^2.0.1",
     "filename-reserved-regex": "^1.0.0",
     "filenamify": "^1.2.1",
