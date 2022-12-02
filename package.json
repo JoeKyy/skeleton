@@ -154,7 +154,7 @@
     "dateformat": "^2.2.0",
     "debug": "^2.6.9",
     "decamelize": "^1.2.0",
-    "decode-uri-component": "^0.2.0",
+    "decode-uri-component": "^0.2.1",
     "deep-extend": "^0.6.0",
     "defaults": "^1.0.3",
     "define-properties": "^1.1.3",
