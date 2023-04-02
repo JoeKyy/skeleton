@@ -11,7 +11,7 @@ $gridWidth    : $totalColumns * ($columnWidth + $gutter) !default;
 
 
 
-$flex-gutter: percentage($gutter/$gridWidth);
+$flex-gutter: percentage( calc($gutter / $gridWidth) );
 
 /// Retorna a largura calculada de acordo com a quantidade de colunas desejadas
 ///

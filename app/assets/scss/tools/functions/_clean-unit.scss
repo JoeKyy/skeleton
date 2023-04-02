@@ -11,7 +11,7 @@
 /// @return  {number} - Cleaned value
 @function clean-unit($value) {
   @if type-of($value) == 'number' {
-    @return $value / ($value * 0 + 1);
+    @return calc($value / calc($value * 0));
   } @else {
     @warn '"#{$value}" não é um número.';
   }

@@ -28,7 +28,7 @@ $font-size-base: 16px !default;
 ///   }
 @function em($value, $base-size: $font-size-base) {
   @if type-of($value) == 'number' {
-    @return (clean-unit($value) / clean-unit($base-size)) * 1em;
+    @return calc(clean-unit($value) / clean-unit($base-size)) * 1em;
   } @else {
     @warn '"#{$value}" não é um número';
   }
