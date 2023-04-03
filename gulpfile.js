@@ -28,23 +28,24 @@ gulp.task('browserSync', function () {
   });
 });
 
-gulp.task('sass', function () {
-  return gulp
-    .src('app/assets/scss/*.scss')
+gulp.task('sass', function (done) {
+  gulp
+    .src('app/assets/scss/*.*')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('app/assets/css'))
     .pipe(uglifycss({ uglyComments: true }))
     .pipe(concat('style.min.css'))
     .pipe(gulp.dest('app/assets/css'))
     .pipe(browserSync.reload({ stream: true }));
+  done();
 });
 
-gulp.task('sprite', function () {
+gulp.task('sprite', function (done) {
   const spriteData = gulp
     .src('./app/assets/images/sprites/*.*')
     .pipe(
       spritesmith({
-        imgPath: '../assets/images/sprite.png',
+        imgPath: '../../assets/images/sprite.png',
         imgName: 'sprite.png',
         cssName: '_sprite.scss',
         cssFormat: 'scss',
@@ -58,20 +59,27 @@ gulp.task('sprite', function () {
 
   spriteData.img.pipe(gulp.dest('./app/assets/images/'));
   spriteData.css.pipe(gulp.dest('./app/assets/scss/'));
+  done();
 });
 
+
 gulp.task('watch', function () {
-  gulp.watch(
-    'app/assets/images/sprites/*.*',
-    gulp.series('sprite', browserSync.reload)
-  );
-  gulp.watch(
-    ['app/assets/scss/**/*.scss', 'app/assets/scss/**/**/*.scss'],
-    gulp.series('sass', browserSync.reload)
-  );
+  gulp.watch('app/assets/images/sprites/*.*', gulp.series('sprite')).on('change', browserSync.reload);
+
+  gulp.watch([
+    'app/assets/scss/*.*',
+    'app/assets/scss/**/*.*',
+    'app/assets/scss/**/**/*.*'
+  ], gulp.series('sass')).on('change', browserSync.reload);
+
   gulp.watch('app/*.html').on('change', browserSync.reload);
-  gulp.watch('app/assets/js/**/*.js').on('change', browserSync.reload);
+
+  gulp.watch([
+    'app/assets/js/*.js',
+    'app/assets/js/**/*.js',
+  ]).on('change', browserSync.reload);
 });
+
 
 gulp.task('useref', function () {
   return gulp
@@ -114,20 +122,14 @@ gulp.task('clean:dist', function () {
   return deleteSync(['dist/**/*', '!dist/assets/images', '!dist/assets/images/**/*']);
 });
 
-gulp.task('default', function (callback) {
-  runSequence(['sass', 'browserSync', 'sprite'], 'watch',
-    callback
-  )
-})
-
-gulp.task('default',
+gulp.task('default', gulp.series(
+  'sass',
+  'sprite',
   gulp.parallel(
-    'sass',
     'browserSync',
     'watch',
-    'sprite',
   )
-);
+));
 
 gulp.task('build',
   gulp.parallel(
@@ -146,3 +148,4 @@ gulp.task('run', gulp.series(
     done();
   }
 ));
+
