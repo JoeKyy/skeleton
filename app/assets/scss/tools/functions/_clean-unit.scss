@@ -11,8 +11,19 @@
 /// @return  {number} - Cleaned value
 @function clean-unit($value) {
   @if type-of($value) == 'number' {
-    @return calc($value / calc($value * 0));
+    @return strip-unit($value);
   } @else {
     @warn '"#{$value}" não é um número.';
   }
+}
+
+/// Função para remover a unidade de um valor numérico
+///
+/// @access  private
+///
+/// @param   {number} $value - Value to have its unit stripped
+///
+/// @return  {number} - Value without unit
+@function strip-unit($value) {
+  @return $value / (1#{unit($value)});
 }
